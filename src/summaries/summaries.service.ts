@@ -28,7 +28,7 @@ export class SummariesService {
     return this.summariesModel.find().exec();
   }
 
-  @Cron('0 50 23 * * * *')
+  @Cron('30 50 23 * * *')
   async getSummariesFromApi() {
     const data = await wakaTimeInstance.summaries(new Date().toLocaleDateString());
     const createdSummaries = new this.summariesModel(data.data[0]);
